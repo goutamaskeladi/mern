@@ -4,7 +4,7 @@ const User = require('../models/user.model')
 router.get('/', (req, res) => {
     User.find()
     .then(response => res.status(200).json(response))
-    .catch(error => res.status(500).send(error))
+    .catch(error => res.status(500).json(error))
 })
 
 router.post('/add', (req, res) => {

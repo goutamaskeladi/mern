@@ -4,7 +4,8 @@
   "description": "backend setup for mern project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon server.js"
   },
   "keywords": [
     "express",
@@ -19,6 +20,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.7.1"
+    "mongoose": "^5.7.1",
+    "uuid": "^3.3.3"
   }
 }
