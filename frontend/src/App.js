@@ -1,11 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Header from './components/Header'
+import PracticeList from './components/PracticeList'
+import EditPractice from './components/EditPractice'
+import CreatePractice from './components/CreatePractice'
+import CreateUser from './components/CreateUser'
 
 class App extends Component {
-    render () {
+    render() {
         return (
-            <div>
-                <h2>Hello React</h2>
-            </div>
+            <Router>
+                <div className="container">
+                    <Header />
+                    <Route exact path="/" component={PracticeList} />
+                    <Route path="/edit/:id" component={EditPractice} />
+                    <Route path="/create" component={CreatePractice} />
+                    <Route path="/user" component={CreateUser} />
+                </div>
+            </Router>
         );
     }
 }
