@@ -4,21 +4,26 @@ import { Link } from 'react-router-dom'
 class Header extends Component {
     render() {
         return (
-            <nav class="navbar navbar-expand-sm bg-light">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <Link class="nav-link" to="/">Practice List</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to="/edit/:id">Edit Practice</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to="/create">Add Practice</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to="/user">Create User</Link>
-                    </li>
-                </ul>
+            <nav className="navbar navbar-expand-sm bg-light">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <a className="navbar-brand" href="/">MERN</a>
+                    </div>
+                    <ul className="nav navbar-nav navbar-right">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">Task List</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/edit/:id">Edit Task</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/createtask">Create Task</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/user">Create User</Link>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         )
     }
