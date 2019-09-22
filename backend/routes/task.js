@@ -38,7 +38,7 @@ router.put('/update/:id', (req, res) => {
 router.post("/add", (req, res) => {
     const name = req.body.name
     const description = req.body.description
-    const date = Date.parse(req.body.date)
+    const date = req.body.date
 
     const newData = new Task({
         _id: uuidv4(),

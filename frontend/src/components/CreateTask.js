@@ -12,7 +12,7 @@ class CreateTask extends Component {
             date: new Date(),
             users: [],
             successMsg: false,
-            errorMsg : ""
+            errorMsg: ""
         }
     }
     componentDidMount() {
@@ -25,14 +25,14 @@ class CreateTask extends Component {
             })
             .catch(error => {
                 let message;
-                if(error.response.data.errmsg) {
+                if (error.response.data.errmsg) {
                     message = error.response.data.errmsg
                 } else if (error.response.data.message) {
                     message = error.response.data.message
                 } else {
                     message = "Some problem occured. Please contact system admin"
                 }
-                this.setState({errorMsg: message})
+                this.setState({ errorMsg: message })
             })
     }
     handleChange = e => {
@@ -49,78 +49,80 @@ class CreateTask extends Component {
             description: this.state.description,
             date: this.state.date
         })
-        .then(response => {
-            this.setState({
-                successMsg : true
+            .then(response => {
+                this.setState({
+                    successMsg: true
+                })
             })
-        })
-        .catch(error => {
-            let message;
-            if(error.response.data.errmsg) {
-                message = error.response.data.errmsg
-            } else if (error.response.data.message) {
-                message = error.response.data.message
-            } else {
-                message = "Some problem occured. Please contact system admin"
-            }
-            this.setState({errorMsg: message})
-        })
+            .catch(error => {
+                let message;
+                if (error.response.data.errmsg) {
+                    message = error.response.data.errmsg
+                } else if (error.response.data.message) {
+                    message = error.response.data.message
+                } else {
+                    message = "Some problem occured. Please contact system admin"
+                }
+                this.setState({ errorMsg: message })
+            })
     }
     render() {
         return (
             <div>
                 <br></br>
-                <h2>Create Task</h2>
+                <h4>Create Task</h4>
                 <hr></hr>
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="name">Select User</label>
-                        <select className="form-control" id="name" name="name" onChange={this.handleChange}>
-                        <option value="" selected disabled hidden>Choose here</option>
-                            {
-                                this.state.users ?
-                                    this.state.users.map(item => {
-                                        return (
-                                            <option key={item} value={item}>
-                                                {item}
-                                            </option>
-                                        )
-                                    }) : ""
-                            }
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="date">Select Date</label><br></br>
-                        <DatePicker
-                            name="date"
-                            selected={this.state.date}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="description">Enter Description</label>
-                        <textarea className="form-control" rows="5" id="description" name="description" onChange={this.handleChange}></textarea>
-                    </div>
-                    <div className="form-group">
-                        <button type="button" className="btn btn-info" onClick={this.handleSubmit}>Submit</button>
-                    </div>
-                </form>
+                <div class="jumbotron">
+                    <form>
+                        <div className="form-group">
+                            <label htmlFor="name">Select User</label>
+                            <select className="form-control" id="name" name="name" onChange={this.handleChange} defaultValue={'DEFAULT'}>
+                                <option value="DEFAULT" disabled>Pick out</option>
+                                {
+                                    this.state.users ?
+                                        this.state.users.map(item => {
+                                            return (
+                                                <option key={item} value={item}>
+                                                    {item}
+                                                </option>
+                                            )
+                                        }) : ""
+                                }
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="date">Select Date</label><br></br>
+                            <DatePicker
+                                name="date"
+                                selected={this.state.date}
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="description">Enter Description</label>
+                            <textarea className="form-control" rows="5" id="description" name="description" onChange={this.handleChange}></textarea>
+                        </div>
+                        <div className="form-group">
+                            <button type="button" className="btn btn-info" onClick={this.handleSubmit}>Submit</button>
+                        </div>
+                    </form>
+                </div>
                 <br></br>
                 {
-                    this.state.errorMsg ? 
-                    <div className="alert alert-danger alert-dismissible">
-                      <button type="button" className="close" data-dismiss="alert">&times;</button>
-                      <strong>Error: </strong>{this.state.errorMsg}
-                    </div>
-                    : ""
+                    this.state.errorMsg ?
+                        <div className="alert alert-danger alert-dismissible">
+                            <button type="button" className="close" data-dismiss="alert">&times;</button>
+                            <strong>Error: </strong>{this.state.errorMsg}
+                        </div>
+                        : ""
                 }
                 {
                     this.state.successMsg ?
-                    <div className="alert alert-success alert-dismissible">
-                        <button type="button" className="close" data-dismiss="alert">&times;</button>
-                        <strong>Success: </strong> New task has been added successfully!
+                        <div className="alert alert-success alert-dismissible">
+                            <button type="button" className="close" data-dismiss="alert">&times;</button>
+                            <strong>Success: </strong> New task has been added successfully!
                     </div>
-                    : ""
+                        : ""
                 }
             </div>
         )

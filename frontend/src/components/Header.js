@@ -14,9 +14,6 @@ class Header extends Component {
                             <Link className="nav-link" to="/">Task List</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/edit/:id">Edit Task</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to="/createtask">Create Task</Link>
                         </li>
                         <li className="nav-item">
