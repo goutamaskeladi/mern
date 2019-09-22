@@ -2,7 +2,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const mongoose = require("mongoose")
-const practiceRouter = require('./routes/practice')
+const taskRouter = require('./routes/task')
 const usersRouter = require('./routes/users')
 
 require('dotenv').config()
@@ -25,7 +25,7 @@ mongoose.connection.on('disconnected', () => {
     console.log("Mongoose default connection is disconnected");
 })
 
-app.use('/practice', practiceRouter)
+app.use('/task', taskRouter)
 app.use('/users', usersRouter)
 
 app.listen(port, () => console.log(`Server is running on port ${port}`))

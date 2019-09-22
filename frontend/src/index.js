@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-const app = (
+const Root = (
     <App />
 );
 
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.render(Root, document.getElementById('root'));
